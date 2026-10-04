@@ -1,0 +1,6 @@
+.DS_Store
+._*
+# version alternative abandonnée, gardée en local seulement
+v2/
+# VSL complète : 143 Mo, au-dessus de la limite GitHub de 100 Mo par fichier
+media/mickael-wu-vsl.mp4
