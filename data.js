@@ -41,7 +41,7 @@ window.PORTFOLIO = {
       accent: '#ff2a3c', tags: ['VSL', 'Montage', 'Motion design'],
       blurb: 'VSL de 6 minutes : dérush, montage, zooms et motion design sur mesure.',
       // preview = boucle muette affichée dans la grille, src = vidéo complète du lecteur
-      media: [{ src: 'media/mickael-wu-vsl.mp4', preview: 'media/mickael-wu-vsl-preview.mp4', o: 'h', tag: 'VSL · 6 min' }],
+      media: [{ src: 'media/mickael-wu-vsl-web.mp4', preview: 'media/mickael-wu-vsl-preview.mp4', o: 'h', tag: 'VSL · 6 min' }],
     },
     {
       id: 'theoaudace', name: 'Theo Audace', platform: 'TikTok', handle: '@theo.audace',
