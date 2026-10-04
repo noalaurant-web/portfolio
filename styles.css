@@ -384,6 +384,7 @@ main { overflow-x: clip; }
 
 @media (max-width: 900px) {
   .sticker { left: 0; top: 2%; font-size: 12px; padding: 7px 11px; }
+  .client.is-on { background: var(--accent); }
   .stage { border-radius: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { .scribble path { stroke-dashoffset: 0; } }
