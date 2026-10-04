@@ -51,7 +51,7 @@
     const t = D.trusted.find((x) => x.client === h.client) || {};
     return `
     <a class="hcard hcard--${k}" href="?c=${c.id}" data-client="${c.id}" data-cursor="Vidéos" aria-label="Voir les vidéos de ${c.name}">
-      <video muted loop playsinline preload="metadata" src="${c.media[h.i].src}#t=0.1"></video>
+      <video muted loop playsinline preload="metadata" poster="${c.media[h.i].poster || ''}" src="${c.media[h.i].preview || c.media[h.i].src}"></video>
       <span class="hcard__chip"><img src="${c.logo}" alt=""><span><b>${c.name}</b>${t.subs ? `<small>${t.subs} abonnés</small>` : ''}</span></span>
     </a>`;
   }).join('') + '<span class="sticker" aria-hidden="true"><b>+50M</b> de vues</span>';
@@ -67,6 +67,8 @@
   let lbOpen = false, stageVisible = false, reelVisible = false, heroVisible = true;
   const stage = $('#stage'), list = $('#clients');
   const reelVideo = $('.reel__video');
+  if (D.showreel.poster) reelVideo.poster = D.showreel.poster;
+  reelVideo.preload = 'none'; // le showreel ne se télécharge que lorsqu'il arrive à l'écran
   reelVideo.src = D.showreel.src;
 
   const play = (v) => { const p = v.play(); if (p) p.catch(() => {}); };
@@ -111,8 +113,8 @@
       </div>
       <div class="media${grid ? ' media--grid' : ''}" style="${mw}">
         ${c.media.map((m, i) => `
-          <div class="m m--${m.o}" data-i="${i}" data-cursor="Play" tabindex="0" role="button" aria-label="Lire la vidéo ${i + 1} — ${c.name}">
-            <video muted loop playsinline preload="metadata" src="${m.preview || m.src}#t=0.1"></video>
+          <div class="m m--${m.o}${m.poster ? ' is-ready' : ''}" data-i="${i}" data-cursor="Play" tabindex="0" role="button" aria-label="Lire la vidéo ${i + 1} — ${c.name}">
+            <video muted loop playsinline preload="metadata"${m.poster ? ` poster="${m.poster}"` : ''} src="${m.preview || m.src}"></video>
             ${m.tag ? `<span class="tag m__tag">${m.tag}</span>` : ''}
             <span class="mono m__n">${pad(i + 1)}/${pad(c.media.length)}</span>
             <span class="mono m__err">Aperçu indisponible</span>

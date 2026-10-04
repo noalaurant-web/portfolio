@@ -2,6 +2,8 @@
    CONTENU DU PORTFOLIO — tout se modifie ici.
    Ajouter un client = copier un bloc dans `clients`.
    media.o : 'v' = vertical 9:16, 'h' = horizontal 16:9
+   media.preview : boucle légère de 8 s affichée dans la page (la vidéo complète `src` ne se charge qu'au clic)
+   media.poster  : image affichée tout de suite, avant que la vidéo arrive
 ------------------------------------------------------------------- */
 window.PORTFOLIO = {
   name: 'Noah',
@@ -9,7 +11,7 @@ window.PORTFOLIO = {
   phone: '07 69 77 60 56',
   instagram: 'https://www.instagram.com/noah_lrnt',
   avatar: 'assets/noah.png',
-  showreel: { src: 'media/showreel-2026.mp4', o: 'h', tag: 'Showreel 2026' },
+  showreel: { src: 'media/showreel-2026.mp4', poster: 'media/posters/showreel-2026.jpg', o: 'h', tag: 'Showreel 2026' },
 
   // Les 3 vidéos du haut de page : [gauche, centre, droite]. client = id de fiche, i = n° de la vidéo dans sa fiche (0 = première).
   hero: [
@@ -39,7 +41,7 @@ window.PORTFOLIO = {
       accent: '#ff2a3c', tags: ['VSL', 'Montage', 'Motion design'],
       blurb: 'VSL de 6 minutes : dérush, montage, zooms et motion design sur mesure.',
       // preview = boucle muette affichée dans la grille, src = vidéo complète du lecteur
-      media: [{ src: 'media/mickael-wu-vsl-web.mp4', preview: 'media/mickael-wu-vsl-preview.mp4', o: 'h', tag: 'VSL · 6 min' }],
+      media: [{ src: 'media/mickael-wu-vsl-web.mp4', preview: 'media/mickael-wu-vsl-preview.mp4', poster: 'media/posters/mickael-wu-vsl-web.jpg', o: 'h', tag: 'VSL · 6 min' }],
     },
     {
       id: 'theoaudace', name: 'Theo Audace', platform: 'TikTok', handle: '@theo.audace',
@@ -47,9 +49,9 @@ window.PORTFOLIO = {
       accent: '#ff8a1f', tags: ['TikTok', 'Formats courts'],
       blurb: 'Formats courts montés pour TikTok.',
       media: [
-        { src: 'media/theo-audace-1.mp4', o: 'v' },
-        { src: 'media/theo-audace-2.mp4', o: 'v' },
-        { src: 'media/theo-audace-3.mp4', o: 'v' },
+        { src: 'media/theo-audace-1.mp4', preview: 'media/previews/theo-audace-1.mp4', poster: 'media/posters/theo-audace-1.jpg', o: 'v' },
+        { src: 'media/theo-audace-2.mp4', preview: 'media/previews/theo-audace-2.mp4', poster: 'media/posters/theo-audace-2.jpg', o: 'v' },
+        { src: 'media/theo-audace-3.mp4', preview: 'media/previews/theo-audace-3.mp4', poster: 'media/posters/theo-audace-3.jpg', o: 'v' },
       ],
     },
     {
@@ -58,8 +60,8 @@ window.PORTFOLIO = {
       accent: '#ffd23f', tags: ['Ads', 'Hooks & CTA'],
       blurb: 'Publicités verticales déclinées en variantes de hooks et de CTA.',
       media: [
-        { src: 'media/naali-1.mp4', o: 'v' },
-        { src: 'media/naali-2.mp4', o: 'v' },
+        { src: 'media/naali-1.mp4', preview: 'media/previews/naali-1.mp4', poster: 'media/posters/naali-1.jpg', o: 'v' },
+        { src: 'media/naali-2.mp4', preview: 'media/previews/naali-2.mp4', poster: 'media/posters/naali-2.jpg', o: 'v' },
       ],
     },
     {
@@ -68,8 +70,8 @@ window.PORTFOLIO = {
       accent: '#5ce1ff', tags: ['TikTok', 'Formats courts'],
       blurb: 'Formats courts montés pour TikTok.',
       media: [
-        { src: 'media/iori-mcdo.mp4', o: 'v' },
-        { src: 'media/iori-tiktok.mp4', o: 'v' },
+        { src: 'media/iori-mcdo.mp4', preview: 'media/previews/iori-mcdo.mp4', poster: 'media/posters/iori-mcdo.jpg', o: 'v' },
+        { src: 'media/iori-tiktok.mp4', preview: 'media/previews/iori-tiktok.mp4', poster: 'media/posters/iori-tiktok.jpg', o: 'v' },
       ],
     },
     {
@@ -78,8 +80,8 @@ window.PORTFOLIO = {
       accent: '#ff5fd2', tags: ['Créa IA', 'Reels'],
       blurb: 'Contenus verticaux générés et montés avec l’IA.',
       media: [
-        { src: 'media/liam-1.mp4', o: 'v', tag: 'Créa IA' },
-        { src: 'media/liam-2.mp4', o: 'v', tag: 'Créa IA' },
+        { src: 'media/liam-1.mp4', preview: 'media/previews/liam-1.mp4', poster: 'media/posters/liam-1.jpg', o: 'v', tag: 'Créa IA' },
+        { src: 'media/liam-2.mp4', preview: 'media/previews/liam-2.mp4', poster: 'media/posters/liam-2.jpg', o: 'v', tag: 'Créa IA' },
       ],
     },
     {
@@ -88,10 +90,10 @@ window.PORTFOLIO = {
       accent: '#ff7a9c', tags: ['YouTube', 'Motion design'],
       blurb: 'Habillage et animations pour une chaîne YouTube.',
       media: [
-        { src: 'media/shannen-1.mp4', o: 'h' },
-        { src: 'media/shannen-2.mp4', o: 'h' },
-        { src: 'media/shannen-3.mp4', o: 'h' },
-        { src: 'media/shannen-4.mp4', o: 'h' },
+        { src: 'media/shannen-1.mp4', poster: 'media/posters/shannen-1.jpg', o: 'h' },
+        { src: 'media/shannen-2.mp4', poster: 'media/posters/shannen-2.jpg', o: 'h' },
+        { src: 'media/shannen-3.mp4', poster: 'media/posters/shannen-3.jpg', o: 'h' },
+        { src: 'media/shannen-4.mp4', poster: 'media/posters/shannen-4.jpg', o: 'h' },
       ],
     },
     {
@@ -100,9 +102,9 @@ window.PORTFOLIO = {
       accent: '#ffae1a', tags: ['Reels', 'Créa IA'],
       blurb: 'Tournage, montage et créa IA pour Plugmarket.',
       media: [
-        { src: 'media/grz-1.mp4', o: 'v' },
-        { src: 'media/grz-2.mp4', o: 'v' },
-        { src: 'media/grz-3.mp4', o: 'v', tag: 'Créa IA' },
+        { src: 'media/grz-1.mp4', preview: 'media/previews/grz-1.mp4', poster: 'media/posters/grz-1.jpg', o: 'v' },
+        { src: 'media/grz-2.mp4', preview: 'media/previews/grz-2.mp4', poster: 'media/posters/grz-2.jpg', o: 'v' },
+        { src: 'media/grz-3.mp4', preview: 'media/previews/grz-3.mp4', poster: 'media/posters/grz-3.jpg', o: 'v', tag: 'Créa IA' },
       ],
     },
     {
@@ -110,7 +112,7 @@ window.PORTFOLIO = {
       url: 'https://www.youtube.com/@evnbusiness', logo: 'assets/pp/evan.jpg',
       accent: '#4db2ff', tags: ['YouTube', 'Montage long format'],
       blurb: 'Montage YouTube en 4K.',
-      media: [{ src: 'media/evan-1.mp4', o: 'h' }],
+      media: [{ src: 'media/evan-1.mp4', preview: 'media/previews/evan-1.mp4', poster: 'media/posters/evan-1.jpg', o: 'h' }],
     },
     {
       id: 'arntreal', name: 'Arntreal', platform: 'Instagram', handle: '@arntreal.co',
@@ -118,8 +120,8 @@ window.PORTFOLIO = {
       accent: '#ff4b3a', tags: ['Reels', 'Sous-titres'],
       blurb: 'Formats courts rythmés, sous-titrés sur mesure.',
       media: [
-        { src: 'media/arntreal-1.mp4', o: 'v' },
-        { src: 'media/arntreal-2.mp4', o: 'v' },
+        { src: 'media/arntreal-1.mp4', preview: 'media/previews/arntreal-1.mp4', poster: 'media/posters/arntreal-1.jpg', o: 'v' },
+        { src: 'media/arntreal-2.mp4', preview: 'media/previews/arntreal-2.mp4', poster: 'media/posters/arntreal-2.jpg', o: 'v' },
       ],
     },
     {
@@ -128,9 +130,9 @@ window.PORTFOLIO = {
       accent: '#9a6bff', tags: ['Co-fondateur', 'App', 'Reels'],
       blurb: 'L’app que je co-fonde : toute l’image de marque en vidéo.',
       media: [
-        { src: 'media/fady-1.mp4', o: 'v' },
-        { src: 'media/fady-2.mp4', o: 'v' },
-        { src: 'media/fady-3.mp4', o: 'v' },
+        { src: 'media/fady-1.mp4', preview: 'media/previews/fady-1.mp4', poster: 'media/posters/fady-1.jpg', o: 'v' },
+        { src: 'media/fady-2.mp4', preview: 'media/previews/fady-2.mp4', poster: 'media/posters/fady-2.jpg', o: 'v' },
+        { src: 'media/fady-3.mp4', preview: 'media/previews/fady-3.mp4', poster: 'media/posters/fady-3.jpg', o: 'v' },
       ],
     },
     {
@@ -139,9 +141,9 @@ window.PORTFOLIO = {
       accent: '#1fe3a8', tags: ['App', 'Ads', 'Reels'],
       blurb: 'Contenus viraux pour le lancement d’une app.',
       media: [
-        { src: 'media/cadence-1.mp4', o: 'v' },
-        { src: 'media/cadence-2.mp4', o: 'v' },
-        { src: 'media/cadence-3.mp4', o: 'v' },
+        { src: 'media/cadence-1.mp4', preview: 'media/previews/cadence-1.mp4', poster: 'media/posters/cadence-1.jpg', o: 'v' },
+        { src: 'media/cadence-2.mp4', preview: 'media/previews/cadence-2.mp4', poster: 'media/posters/cadence-2.jpg', o: 'v' },
+        { src: 'media/cadence-3.mp4', preview: 'media/previews/cadence-3.mp4', poster: 'media/posters/cadence-3.jpg', o: 'v' },
       ],
     },
     {
@@ -149,7 +151,7 @@ window.PORTFOLIO = {
       url: 'https://www.youtube.com/@Ribeifoot', logo: 'assets/pp/ribeifoot.jpg',
       accent: '#3ee07a', tags: ['YouTube', 'Foot', 'Long format'],
       blurb: 'Montage long format pour une chaîne foot à 52K abonnés.',
-      media: [{ src: 'media/ribeifoot-1.mp4', o: 'h' }],
+      media: [{ src: 'media/ribeifoot-1.mp4', preview: 'media/previews/ribeifoot-1.mp4', poster: 'media/posters/ribeifoot-1.jpg', o: 'h' }],
     },
     {
       id: 'mohasmile', name: 'Mohasmile', platform: 'TikTok', handle: '@mohasmilefr',
@@ -157,9 +159,9 @@ window.PORTFOLIO = {
       accent: '#3fe0ff', tags: ['Reels', 'Tournage'],
       blurb: 'Reels tournés et montés en 4K vertical.',
       media: [
-        { src: 'media/mohasmile-1.mp4', o: 'v' },
-        { src: 'media/mohasmile-2.mp4', o: 'v' },
-        { src: 'media/mohasmile-3.mp4', o: 'v' },
+        { src: 'media/mohasmile-1.mp4', preview: 'media/previews/mohasmile-1.mp4', poster: 'media/posters/mohasmile-1.jpg', o: 'v' },
+        { src: 'media/mohasmile-2.mp4', preview: 'media/previews/mohasmile-2.mp4', poster: 'media/posters/mohasmile-2.jpg', o: 'v' },
+        { src: 'media/mohasmile-3.mp4', preview: 'media/previews/mohasmile-3.mp4', poster: 'media/posters/mohasmile-3.jpg', o: 'v' },
       ],
     },
     {
@@ -167,7 +169,7 @@ window.PORTFOLIO = {
       url: 'https://www.instagram.com/b4cars.exe/?hl=fr', logo: 'assets/pp/b4cars.jpg',
       accent: '#ff6f1a', tags: ['Automobile', 'Reels'],
       blurb: 'Edit automobile nerveux.',
-      media: [{ src: 'media/b4cars-1.mp4', o: 'v' }],
+      media: [{ src: 'media/b4cars-1.mp4', preview: 'media/previews/b4cars-1.mp4', poster: 'media/posters/b4cars-1.jpg', o: 'v' }],
     },
     {
       id: 'nightpass', name: 'Nightpass', platform: 'Instagram', handle: '@nightpass_app',
@@ -175,9 +177,9 @@ window.PORTFOLIO = {
       accent: '#7d7bff', tags: ['App', 'Nightlife', 'Reels'],
       blurb: 'Formats courts pour une app de sorties.',
       media: [
-        { src: 'media/nightpass-1.mp4', o: 'v' },
-        { src: 'media/nightpass-2.mp4', o: 'v' },
-        { src: 'media/nightpass-3.mp4', o: 'v' },
+        { src: 'media/nightpass-1.mp4', preview: 'media/previews/nightpass-1.mp4', poster: 'media/posters/nightpass-1.jpg', o: 'v' },
+        { src: 'media/nightpass-2.mp4', preview: 'media/previews/nightpass-2.mp4', poster: 'media/posters/nightpass-2.jpg', o: 'v' },
+        { src: 'media/nightpass-3.mp4', preview: 'media/previews/nightpass-3.mp4', poster: 'media/posters/nightpass-3.jpg', o: 'v' },
       ],
     },
     {
@@ -186,8 +188,8 @@ window.PORTFOLIO = {
       accent: '#f6c945', tags: ['Trading', 'Reels'],
       blurb: 'Reels pédagogiques sur le trading.',
       media: [
-        { src: 'media/forexfab-1.mp4', o: 'v' },
-        { src: 'media/forexfab-2.mp4', o: 'v' },
+        { src: 'media/forexfab-1.mp4', preview: 'media/previews/forexfab-1.mp4', poster: 'media/posters/forexfab-1.jpg', o: 'v' },
+        { src: 'media/forexfab-2.mp4', preview: 'media/previews/forexfab-2.mp4', poster: 'media/posters/forexfab-2.jpg', o: 'v' },
       ],
     },
     {
@@ -196,9 +198,9 @@ window.PORTFOLIO = {
       accent: '#c6ff3d', tags: ['Montage', 'Motion design'],
       blurb: 'D’autres projets sortis de la timeline.',
       media: [
-        { src: 'media/autres-1.mp4', o: 'v' },
-        { src: 'media/autres-2.mp4', o: 'v' },
-        { src: 'media/autres-3.mp4', o: 'h' },
+        { src: 'media/autres-1.mp4', preview: 'media/previews/autres-1.mp4', poster: 'media/posters/autres-1.jpg', o: 'v' },
+        { src: 'media/autres-2.mp4', preview: 'media/previews/autres-2.mp4', poster: 'media/posters/autres-2.jpg', o: 'v' },
+        { src: 'media/autres-3.mp4', preview: 'media/previews/autres-3.mp4', poster: 'media/posters/autres-3.jpg', o: 'h' },
       ],
     },
   ],
