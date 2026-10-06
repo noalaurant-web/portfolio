@@ -15,8 +15,8 @@ window.PORTFOLIO = {
 
   // Les 3 vidéos du haut de page : [gauche, centre, droite]. client = id de fiche, i = n° de la vidéo dans sa fiche (0 = première).
   hero: [
-    { client: 'theoaudace', i: 0 },
     { client: 'iori', i: 0 },
+    { client: 'mickaelwu', i: 3 },
     { client: 'mohasmile', i: 2 },
   ],
 
