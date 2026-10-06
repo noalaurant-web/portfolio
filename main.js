@@ -78,6 +78,11 @@
     $$('video', heroV).forEach((v) => (heroVisible && !lbOpen ? play(v) : v.pause()));
   };
   new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; sync(); }, { threshold: 0.05 }).observe(heroV);
+  // si la page s'est chargée en arrière-plan, le navigateur a pu refuser la lecture : on relance au retour
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) sync(); });
+  addEventListener('focus', sync);
+  addEventListener('pageshow', sync);
+  $$('video', heroV).forEach((v) => v.addEventListener('canplay', sync, { once: true }));
   new IntersectionObserver(([e]) => { stageVisible = e.isIntersecting; sync(); }, { threshold: 0.05 }).observe(stage);
   new IntersectionObserver(([e]) => { reelVisible = e.isIntersecting; sync(); }, { threshold: 0.05 }).observe($('.reel'));
   const reelTc = $('[data-reel-tc]');
