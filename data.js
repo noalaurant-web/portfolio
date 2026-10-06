@@ -38,10 +38,15 @@ window.PORTFOLIO = {
     {
       id: 'mickaelwu', name: 'Mickael Wu', platform: 'TikTok', handle: '@mickaelwu9',
       url: 'https://www.tiktok.com/@mickaelwu9', logo: 'assets/pp/mickaelwu.jpg',
-      accent: '#ff2a3c', tags: ['VSL', 'Montage', 'Motion design'],
-      blurb: 'VSL de 6 minutes : dérush, montage, zooms et motion design sur mesure.',
+      accent: '#ff2a3c', tags: ['VSL', 'Ads', 'Montage', 'Motion design'],
+      blurb: 'Une VSL de 6 minutes et des publicités verticales : dérush, montage, zooms et motion design sur mesure.',
       // preview = boucle muette affichée dans la grille, src = vidéo complète du lecteur
-      media: [{ src: 'media/mickael-wu-vsl-web.mp4', preview: 'media/mickael-wu-vsl-preview.mp4', poster: 'media/posters/mickael-wu-vsl-web.jpg', o: 'h', tag: 'VSL · 6 min' }],
+      media: [
+        { src: 'media/mickael-wu-vsl-web.mp4', preview: 'media/mickael-wu-vsl-preview.mp4', poster: 'media/posters/mickael-wu-vsl-web.jpg', o: 'h', tag: 'VSL · 6 min' },
+        { src: 'media/mickaelwu-ads-6.mp4', preview: 'media/previews/mickaelwu-ads-6.mp4', poster: 'media/posters/mickaelwu-ads-6.jpg', o: 'v', tag: 'Ads' },
+        { src: 'media/mickaelwu-ads-11.mp4', preview: 'media/previews/mickaelwu-ads-11.mp4', poster: 'media/posters/mickaelwu-ads-11.jpg', o: 'v', tag: 'Ads' },
+        { src: 'media/mickaelwu-ads-18.mp4', preview: 'media/previews/mickaelwu-ads-18.mp4', poster: 'media/posters/mickaelwu-ads-18.jpg', o: 'v', tag: 'Ads' },
+      ],
     },
     {
       id: 'theoaudace', name: 'Theo Audace', platform: 'TikTok', handle: '@theo.audace',

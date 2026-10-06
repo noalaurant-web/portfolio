@@ -367,6 +367,9 @@ main { overflow-x: clip; }
 .client { transition: color .3s, padding .4s var(--ease), background .3s; }
 .client.is-on { background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%); }
 
+.media-rows { display: flex; flex-direction: column; gap: 12px; margin: auto; width: 100%; }
+.media-rows .media { margin: 0 auto; }
+
 /* services */
 .svc { transition: border-color .3s, translate .4s var(--ease); }
 .svc:hover { translate: 0 -4px; }

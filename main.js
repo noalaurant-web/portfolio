@@ -97,6 +97,22 @@
     const sum = c.media.reduce((s, m) => s + (m.o === 'v' ? 0.5625 : 1.7778), 0);
     const fan = D.trusted.find((t) => t.client === c.id && t.subs);
     const mw = `max-width:calc(var(--mh) * ${sum.toFixed(4)} + ${(c.media.length - 1) * 12}px)`;
+    // une seule ligne trop plate (ex. 1 vidéo horizontale + 3 verticales) → deux rangées : horizontales puis verticales
+    const split = !allH && c.media.some((m) => m.o === 'h') && sum > 3;
+    const card = (m) => {
+      const i = c.media.indexOf(m);
+      return `
+          <div class="m m--${m.o}${m.poster ? ' is-ready' : ''}" data-i="${i}" data-cursor="Play" tabindex="0" role="button" aria-label="Lire la vidéo ${i + 1} — ${c.name}">
+            <video muted loop playsinline preload="metadata"${m.poster ? ` poster="${m.poster}"` : ''} src="${m.preview || m.src}"></video>
+            ${m.tag ? `<span class="tag m__tag">${m.tag}</span>` : ''}
+            <span class="mono m__n">${pad(i + 1)}/${pad(c.media.length)}</span>
+            <span class="mono m__err">Aperçu indisponible</span>
+          </div>`;
+    };
+    const row = (items, k) => {
+      const r = items.reduce((t, m) => t + (m.o === 'v' ? 0.5625 : 1.7778), 0);
+      return `<div class="media" style="max-width:calc(var(--mh) * ${(r * k).toFixed(4)} + ${(items.length - 1) * 12}px)">${items.map(card).join('')}</div>`;
+    };
     return `
       <div class="stage__head">
         <span class="stage__logo">${initials(c.name)}<img src="${c.logo}" alt="" onerror="this.remove()"></span>
@@ -111,15 +127,9 @@
           <button class="pill" type="button" data-copy>Copier le lien</button>
         </div>
       </div>
-      <div class="media${grid ? ' media--grid' : ''}" style="${mw}">
-        ${c.media.map((m, i) => `
-          <div class="m m--${m.o}${m.poster ? ' is-ready' : ''}" data-i="${i}" data-cursor="Play" tabindex="0" role="button" aria-label="Lire la vidéo ${i + 1} — ${c.name}">
-            <video muted loop playsinline preload="metadata"${m.poster ? ` poster="${m.poster}"` : ''} src="${m.preview || m.src}"></video>
-            ${m.tag ? `<span class="tag m__tag">${m.tag}</span>` : ''}
-            <span class="mono m__n">${pad(i + 1)}/${pad(c.media.length)}</span>
-            <span class="mono m__err">Aperçu indisponible</span>
-          </div>`).join('')}
-      </div>`;
+      ${split
+        ? `<div class="media-rows">${row(c.media.filter((m) => m.o === 'h'), 0.62)}${row(c.media.filter((m) => m.o === 'v'), 0.5)}</div>`
+        : `<div class="media${grid ? ' media--grid' : ''}" style="${mw}">${c.media.map(card).join('')}</div>`}`;
   };
 
   let current = null;
