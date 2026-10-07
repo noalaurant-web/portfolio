@@ -1,4 +1,4 @@
-@property --accent { syntax: '<color>'; inherits: true; initial-value: #c6ff3d; }
+@property --accent { syntax: '<color>'; inherits: true; initial-value: #ff2b2b; }
 
 :root {
   --bg: #09090a;
@@ -8,7 +8,7 @@
   --fg: #f3f0ea;
   --mute: #8d8c88;
   --ink: #09090a;
-  --accent: #c6ff3d;
+  --accent: #ff2b2b;
   --maxw: 1240px;
   --pad: max(clamp(16px, 5vw, 96px), calc((100vw - var(--maxw)) / 2));
   --cw: calc(100vw - 2 * var(--pad));
