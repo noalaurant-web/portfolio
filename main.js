@@ -50,11 +50,17 @@
     const c = D.clients.find((x) => x.id === h.client);
     const t = D.trusted.find((x) => x.client === h.client) || {};
     return `
-    <a class="hcard hcard--${k}" href="?c=${c.id}" data-client="${c.id}" data-cursor="Vidéos" aria-label="Voir les vidéos de ${c.name}">
-      <video muted loop playsinline preload="metadata" poster="${c.media[h.i].poster || ''}" src="${c.media[h.i].preview || c.media[h.i].src}"></video>
-      <span class="hcard__chip"><img src="${c.logo}" alt=""><span><b>${c.name}</b>${t.subs ? `<small>${t.subs} abonnés</small>` : ''}</span></span>
-    </a>`;
+    <div class="hslot hslot--${k}" data-k="${k}">
+      <a class="hcard hcard--${k}" href="?c=${c.id}" data-client="${c.id}" data-cursor="Vidéos" aria-label="Voir les vidéos de ${c.name}">
+        <video muted loop playsinline preload="metadata" poster="${c.media[h.i].poster || ''}" src="${c.media[h.i].preview || c.media[h.i].src}"></video>
+        <span class="hcard__chip"><img src="${c.logo}" alt=""><span><b>${c.name}</b>${t.subs ? `<small>${t.subs} abonnés</small>` : ''}</span></span>
+      </a>
+    </div>`;
   }).join('') + '<span class="sticker" aria-hidden="true"><b>+50M</b> de vues</span>';
+  // la vidéo survolée devient la plus grande et passe au premier plan (positions en CSS, jamais dans les transforms GSAP)
+  heroV.dataset.focus = '1';
+  $$('.hslot', heroV).forEach((sl) => sl.addEventListener('mouseenter', () => (heroV.dataset.focus = sl.dataset.k)));
+  heroV.addEventListener('mouseleave', () => (heroV.dataset.focus = '1'));
   $('[data-hero-faces]').innerHTML = D.trusted.slice(0, 5).map((t) => `<img src="${t.pp}" alt="" onerror="this.remove()">`).join('');
 
   const timeFmt = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' });
